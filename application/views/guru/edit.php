@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <head>
     <title></title>
+    <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <script src="http://code.highcharts.com/highcharts.js"></script>
+        <script src="http://code.highcharts.com/modules/exporting.js"></script>
 </head>
 <style type="text/css">
 			p {
@@ -10,33 +19,38 @@
 </style>
 <body>
     <p><b>EDIT FORM GURU</b></p>
-    <?php echo form_open('guru/update'); ?>
-	<table align="center" border="1px">
-		<tr>
-			<td>NIP</td>
-			<td><input type="text" name="nip" value="<?php echo $edit['nip'] ?>" readonly></td></td>
-		</tr>
-		<tr>
-			<td>Nama Guru</td>
-			<td><input type="text" name="nama" placeholder="<?php echo $edit['nama'] ?>" required></td>
-		</tr>
-		<tr>
-			<td>Jenis Kelamin</td>
-			<td><input type="radio" name="jk" value="L">Laki Laki
-				<input type="radio" name="jk" value="P">Perempuan
-					</td>
-		</tr>
-		<tr>
-			<td>Email</td>
-			<td><input type="text" name="email" placeholder="<?php echo $edit['email'] ?>" required></td>
-		</tr>
-		<tr>
-			<td>
-				<input type="submit" value="SIMPAN">
-				<input type="reset" value="BATAL">
-			</td>
-		</tr>
-	</table>
+    <div class="col-md-6 mx-auto d-block" align="center">
+                <div data-form-type="formoid">
+                    <?php echo form_open('guru/update'); ?>
+                        <div class="row">
+                            <div class="col-md-6 multi-horizontal" data-for="name">
+                                <input type="text" class="form-control input" name="nip" data-form-field="Name" placeholder="NIP" value="<?php echo $edit['nip'] ?>" required="" id="name-form4-4v" readonly>
+                            </div>
+                            <div class="col-md-6 multi-horizontal" data-for="phone">
+                                <input type="text" class="form-control input" name="nama" data-form-field="Phone" placeholder="<?php echo $edit['nama'] ?>" required="" id="phone-form4-4v">
+                            </div>
+                            <div class="col-md-12" data-for="email" style="margin-top:10px;">
+                                <input type="text" class="form-control input" name="email" data-form-field="Email" placeholder="<?php echo $edit['email'] ?>" required="" id="email-form4-4v">
+                            </div>
+                            <br style="margin-top:10px;">
+                            <div class="col-md-12" data-for="message">
+                                <p>JENIS KELAMIN</p>
+                                <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" class="custom-control-input" id="customRadio1" name="jk" value="L">
+                                <label class="custom-control-label" for="customRadio1">Laki-Laki</label>
+                                </div>
+                                <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" class="custom-control-input" id="customRadio2" name="jk" value="P">
+                                <label class="custom-control-label" for="customRadio2">Perempuan</label>
+                                </div>
+                            </div>
+                            <div class="input-group-btn col-md-12" style="margin-top: 10px;">
+                                <button type="submit" class="btn btn-primary btn-form display-4">SUBMIT</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
 	<?php echo form_close(); ?>
 </body>
 </html>
