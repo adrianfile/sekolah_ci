@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title> Guru </title>
+        <title> Tampil Produk </title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -18,20 +18,23 @@
         </style>
     </head>
     <body>
-    <h1 class="header">GURU</h1>
+    <h1 class="header">Tampil Produk</h1>
 	<table class="container table-hover text-center" border="1" style="border-collapse: collapse;" align="center" style="text-align: center;">
 		<tr>
 			<th>
-				NIP
+				ID
 			</th>
 			<th>
-				Nama Guru
+				Kode Produk
 			</th>
 			<th>
-                Jenis Kelamin
+                Nama Produk
 			</th>
 			<th>
-            Email
+            	Harga
+			</th>
+			<th>
+            	Stok
 			</th>
 			<th colspan="2">
 				Aksi
@@ -40,28 +43,22 @@
 		<?php
 			foreach($tampil as $key => $value)
 				{
-					if($value->jk == "L")
-					{
-						$value->jk = "Laki-Laki";
-					}
-					else
-					{
-						$value->jk = "Perempuan";
-					}
+					
 						echo 
 						" 
 						<tr>
-						<td>".$value->nip."</td>
-						<td>".$value->nama."</td>
-                        <td>".$value->jk."</td>
-                        <td>".$value->email."</td>
-						<td>".anchor('guru/delete/'.$value->nip,'Delete')."</td>
-						<td>".anchor('guru/edit/'.$value->nip,'Edit')."</td>
+						<td>".$value->id."</td>
+						<td>".$value->kode_produk."</td>
+                        <td>".$value->nama_produk."</td>
+						<td>".$value->harga."</td>
+						<td>".$value->stok."</td>
+						<td>".anchor('produk/delete/'.$value->id,'Delete')."</td>
+						<td>".anchor('produk/edit/'.$value->id,'Edit')."</td>
 						</tr>
 						";
 				}
             ?>
     </table>
-        <button onclick="location.href='guru/input'" style="margin-top: 10px;" type="button" class="btn btn-dark mx-auto d-block" >Input</button>
+        <button onclick="location.href='produk/input'" style="margin-top: 10px;" type="button" class="btn btn-dark mx-auto d-block" >Input</button>
     </body>
 </html>
